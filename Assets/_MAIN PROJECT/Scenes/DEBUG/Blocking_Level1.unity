@@ -995,6 +995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CM Virtual Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 501795719726981677, guid: f43afd67f2791c14d9393886270486ac, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1901252575}
     - target: {fileID: 7849371548657047593, guid: f43afd67f2791c14d9393886270486ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1040,6 +1044,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f43afd67f2791c14d9393886270486ac, type: 3}
+--- !u!4 &1901252575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3522649362104326269, guid: 6a8c33fea8de3304a828c238fbe4ab79, type: 3}
+  m_PrefabInstance: {fileID: 163754169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2130770897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,7 +1192,7 @@ Transform:
   m_GameObject: {fileID: 2130770897}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -38.7, y: 10.9, z: -25.3}
+  m_LocalPosition: {x: -38.7, y: -24.4, z: -25.3}
   m_LocalScale: {x: 40, y: 50, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
