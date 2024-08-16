@@ -84,6 +84,7 @@ namespace PlanetMover.Player.Movement
         
         void Start()
         {
+            //Set inputs
             CustomInputActions inputs = new CustomInputActions();
             
             inputs.Player.Move.performed += context =>
@@ -109,6 +110,10 @@ namespace PlanetMover.Player.Movement
             };
             
             inputs.Enable();
+            
+            //Lock & hide mouse
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         void CalculateMoveVector()
