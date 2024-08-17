@@ -3,7 +3,7 @@ using UnityEngine;
 using KinematicCharacterController;
 using UnityEngine.InputSystem;
 
-namespace PlanetMover.Player.Movement
+namespace PlanetMover.Gameplay.Player.Movement
 {
     public enum CharacterState
     {
@@ -85,7 +85,7 @@ namespace PlanetMover.Player.Movement
         void Start()
         {
             //Set inputs
-            CustomInputActions inputs = new CustomInputActions();
+            CustomInputActions inputs = GameplayManager.Get().inputActions;
             
             inputs.Player.Move.performed += context =>
             {
@@ -108,12 +108,6 @@ namespace PlanetMover.Player.Movement
                 _timeSinceJumpRequested = 0f;
                 _jumpRequested = true; 
             };
-            
-            inputs.Enable();
-            
-            //Lock & hide mouse
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
 
         void CalculateMoveVector()

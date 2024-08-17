@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 418122467}
   - component: {fileID: 418122472}
   - component: {fileID: 418122473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,8 +224,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.91, y: 1.72, z: 4.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.0000007, y: 1.9999993, z: 2.0000005}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 418122467}
-  minScale: 0
-  maxScale: 0
+  minScale: 0.5
+  maxScale: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7849371548657047593, guid: f43afd67f2791c14d9393886270486ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7849371548657047593, guid: f43afd67f2791c14d9393886270486ac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -419,19 +419,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7849371548657047593, guid: f43afd67f2791c14d9393886270486ac, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.3726226
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7849371548657047593, guid: f43afd67f2791c14d9393886270486ac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.08717229
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7849371548657047593, guid: f43afd67f2791c14d9393886270486ac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.89959055
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7849371548657047593, guid: f43afd67f2791c14d9393886270486ac, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.21045254
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7849371548657047593, guid: f43afd67f2791c14d9393886270486ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -537,7 +537,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -586,6 +586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1119187456}
+  - component: {fileID: 1119187457}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -608,6 +609,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1119187457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119187455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379509a8e03624548975557126ac065b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1335477656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -659,6 +672,14 @@ PrefabInstance:
     - target: {fileID: 3522649362104326269, guid: 6a8c33fea8de3304a828c238fbe4ab79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798948420612158907, guid: 6a8c33fea8de3304a828c238fbe4ab79, type: 3}
+      propertyPath: BonusOrientationMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004484822960602065, guid: 6a8c33fea8de3304a828c238fbe4ab79, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7532330853071545105, guid: 6a8c33fea8de3304a828c238fbe4ab79, type: 3}
       propertyPath: m_Name

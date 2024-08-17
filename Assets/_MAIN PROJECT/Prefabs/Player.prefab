@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 32ccf4185b828ba4e9e00edd384c0703, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 8206988182908170883}
   - component: {fileID: 3594755586738387608}
   - component: {fileID: 5798948420612158907}
+  - component: {fileID: 9177199334592445415}
+  - component: {fileID: 1956626736198289194}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -201,11 +203,11 @@ MonoBehaviour:
   OrientationSharpness: 10
   OrientationMethod: 0
   MaxAirMoveSpeed: 15
-  AirAccelerationSpeed: 15
+  AirAccelerationSpeed: 5
   Drag: 0.1
   AllowJumpingWhenSliding: 0
   JumpUpSpeed: 10
-  JumpScalableForwardSpeed: 10
+  JumpScalableForwardSpeed: 0.5
   JumpPreGroundingGraceTime: 0
   JumpPostGroundingGraceTime: 0
   IgnoredColliders: []
@@ -215,3 +217,39 @@ MonoBehaviour:
   MeshRoot: {fileID: 0}
   CameraFollowPoint: {fileID: 0}
   CrouchedCapsuleHeight: 1
+--- !u!114 &9177199334592445415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7532330853071545105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f823349b1bb43b843907b86a738e4eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 50
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  modes:
+  - {fileID: 1956626736198289194}
+  currentMode: {fileID: 0}
+  drawGizmos: 0
+--- !u!114 &1956626736198289194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7532330853071545105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7777948580da242b75dc609b8a550a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strengthScalation: 1
+  baseStrength: 1
+  target: {fileID: 0}
+  currentStrength: 1

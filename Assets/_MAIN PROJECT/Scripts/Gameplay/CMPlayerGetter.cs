@@ -1,7 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 
-namespace PlanetMover.Cam
+namespace PlanetMover.Gameplay.Cam
 {
     [RequireComponent(typeof(CinemachineVirtualCameraBase))]
     public class CMPlayerGetter : MonoBehaviour
