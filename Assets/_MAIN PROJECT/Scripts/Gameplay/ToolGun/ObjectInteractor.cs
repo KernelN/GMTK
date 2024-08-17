@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 namespace PlanetMover.Gameplay.Player.Interaction
 {
@@ -13,54 +14,54 @@ namespace PlanetMover.Gameplay.Player.Interaction
     
     public class ObjectInteractor : MonoBehaviour
     {
-        [Header("Set Values")]
+        [Header("Shoot Values")]
         [SerializeField, Min(0.1f)] float range;
         [SerializeField] LayerMask interactableLayer;
+        
+        [Space] //Modes
         [SerializeField] InteractionMode[] modes;
+
+        [Header("VFX")]
+        [SerializeField] VisualEffect ray;
+        [SerializeField] float rayOnDelay;
+        [SerializeField] ParticleSystem rayCharge;
+        [SerializeField] float chargeOffDelay;
+        [SerializeField] ParticleSystem rayHit;
+        
         [Header("Runtime Values")]
         [SerializeField] InteractionMode currentMode;
         Transform forwardRef;
-        [Header("DEBUG")]
-        [SerializeField] bool drawGizmos;
         bool isFiring = false;
         bool wasFiring = false;
         bool isFiringReverseInteraction = false;
+        
+        [Header("DEBUG")]
+        [SerializeField] bool drawGizmos;
 
         //Unity Events
         void Start()
         {
             currentMode = modes[0];
             
-            CustomInputActions inputs = GameplayManager.Get().inputActions;
-            inputs.Player.Fire.performed += context =>
-            {
-                isFiringReverseInteraction = false;
-                isFiring = true;
-            };
-            inputs.Player.Fire.canceled += context =>
-            {
-                isFiringReverseInteraction = false;
-                isFiring = false;
-            };
-            inputs.Player.ReverseFire.performed += context =>
-            {
-                isFiringReverseInteraction = true;
-                isFiring = true;
-            };
-            inputs.Player.ReverseFire.canceled += context =>
-            {
-                isFiringReverseInteraction = false;
-                isFiring = false;
-            };
             
+            //Set inputs
+            CustomInputActions inputs = GameplayManager.Get().inputActions;
+            inputs.Player.Fire.performed += context => StartRay(false);
+            inputs.Player.Fire.canceled += context => StopRay();
+            inputs.Player.ReverseFire.performed += context => StartRay(true);
+            inputs.Player.ReverseFire.canceled += context => StopRay();
             
             forwardRef = Camera.main.transform;
+            
+            ray.transform.SetParent(null);
         }
         void LateUpdate()
         {
             if(!currentMode) return;
             if (isFiring)
             {
+                UpdateVFXRay();
+                
                 currentMode.SetTarget(GetTarget());
                 currentMode.Interact(isFiringReverseInteraction);
 
@@ -68,6 +69,8 @@ namespace PlanetMover.Gameplay.Player.Interaction
             }
             else if(wasFiring)
             {
+                UpdateVFXRay();
+                
                 currentMode.ReleaseInteract();
 
                 wasFiring = false;
@@ -89,10 +92,49 @@ namespace PlanetMover.Gameplay.Player.Interaction
         {
             if(!forwardRef) return null;
             Ray ray = new Ray(transform.position, forwardRef.forward);
-            if(!Physics.Raycast(ray, out var hit, range, interactableLayer))
+            if (!Physics.Raycast(ray, out var hit, range, interactableLayer))
                 return null;
             
             return hit.transform;
+        }
+        void UpdateVFXRay()
+        {
+            if(!forwardRef) return;
+            Ray ray = new Ray(transform.position, forwardRef.forward);
+            if (Physics.Raycast(ray, out var hit, range))
+            {
+                rayHit.transform.position = hit.point;
+                
+                if(rayHit.isStopped)
+                    rayHit.Play();
+            }
+            else
+            {
+                rayHit.transform.position = ray.origin + ray.direction * range;
+                
+                if(rayHit.isPlaying)
+                    rayHit.Stop();
+            }
+        }
+        void StartRay(bool reverse)
+        {
+            isFiringReverseInteraction = reverse;
+            isFiring = true;
+            
+            //VFX
+            rayCharge.Play();
+            ray.Play();
+            // Universal.LambdaInvoker.Invoke(this, () => { ray.Play(); }, rayOnDelay);
+        }
+        void StopRay()
+        {
+            isFiring = false;
+            
+            //VFX
+            ray.SendEvent("OnStop");
+            rayHit.Stop();
+            Universal.LambdaInvoker.Invoke(this, 
+                    () => { rayCharge.Stop(); }, chargeOffDelay);
         }
     }
 }
