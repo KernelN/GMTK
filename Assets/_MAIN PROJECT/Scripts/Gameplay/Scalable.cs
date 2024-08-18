@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
 namespace PlanetMover.Gameplay.Objects
 {
     [RequireComponent(typeof(Collider))]
-    public class ObjectScale : MonoBehaviour
+    public class Scalable : MonoBehaviour
     {
         [Header("Set Values")]
         [SerializeField] Collider collider;

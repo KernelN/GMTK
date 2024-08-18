@@ -1,4 +1,3 @@
-using System;
 using PlanetMover.Gameplay.Objects;
 using PlanetMover.Gameplay.Player.Interaction;
 using UnityEngine;
@@ -11,7 +10,7 @@ namespace TimeDistortion.Gameplay.Player.Interaction
         [SerializeField, Min(.01f)] float strengthScalation;
         [SerializeField, Min(.01f)] float baseStrength = 1f;
         [Header("Runtime Values")]
-        [SerializeField] ObjectScale target;
+        [SerializeField] Scalable target;
         [SerializeField] float currentStrength = 1f;
         
         //Unity Events
@@ -26,7 +25,7 @@ namespace TimeDistortion.Gameplay.Player.Interaction
                 ReleaseInteract();
                 return;
             }
-            if (!target.TryGetComponent<ObjectScale>(out var t))
+            if (!target.TryGetComponent<Scalable>(out var t))
             {
                 ReleaseInteract();
                 return;

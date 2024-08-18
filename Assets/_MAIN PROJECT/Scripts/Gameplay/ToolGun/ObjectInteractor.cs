@@ -30,6 +30,7 @@ namespace PlanetMover.Gameplay.Player.Interaction
         
         [Header("Runtime Values")]
         [SerializeField] InteractionMode currentMode;
+        int modeIndex;
         Transform forwardRef;
         bool isFiring = false;
         bool wasFiring = false;
@@ -50,6 +51,13 @@ namespace PlanetMover.Gameplay.Player.Interaction
             inputs.Player.Fire.canceled += context => StopRay();
             inputs.Player.ReverseFire.performed += context => StartRay(true);
             inputs.Player.ReverseFire.canceled += context => StopRay();
+            inputs.Player.SwapWeapon.performed += context =>
+            {
+                modeIndex++;
+                if(modeIndex >= modes.Length)
+                    modeIndex = 0;
+                currentMode = modes[modeIndex];
+            };
             
             forwardRef = Camera.main.transform;
             

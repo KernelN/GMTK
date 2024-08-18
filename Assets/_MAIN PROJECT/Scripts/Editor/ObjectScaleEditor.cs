@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace PlanetMover.Gameplay.Objects
 {
-    [CustomEditor(typeof(ObjectScale))]
+    [CustomEditor(typeof(Scalable))]
     public class ObjectScaleEditor : Editor 
     {
         float scaleDebugger;
         public override void OnInspectorGUI()
         {
-            ObjectScale myTarget = (ObjectScale)target;
+            Scalable myTarget = (Scalable)target;
 
             DrawDefaultInspector();
             
