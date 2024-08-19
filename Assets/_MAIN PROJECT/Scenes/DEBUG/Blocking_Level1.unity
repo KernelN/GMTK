@@ -136,11 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4220618641411562908, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[4].m_Value.y
-      value: 121.092384
+      value: 122.40873
       objectReference: {fileID: 0}
     - target: {fileID: 4220618641411562908, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[4].m_Value.z
-      value: -1.0455136
+      value: 7.8044863
       objectReference: {fileID: 0}
     - target: {fileID: 4220618641411562908, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[7].m_Value.x
@@ -148,11 +148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4220618641411562908, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[7].m_Value.y
-      value: 121.37
+      value: 122.68635
       objectReference: {fileID: 0}
     - target: {fileID: 4220618641411562908, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[7].m_Value.z
-      value: 2.1026235
+      value: 10.952623
       objectReference: {fileID: 0}
     - target: {fileID: 6860689909323899453, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_Name
@@ -164,11 +164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7570296892367891095, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 119.573654
+      value: 120.89
       objectReference: {fileID: 0}
     - target: {fileID: 7570296892367891095, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: 9.45
       objectReference: {fileID: 0}
     - target: {fileID: 7570296892367891095, guid: 3babd79abffa266498df175574783e17, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2297,6 +2297,7 @@ GameObject:
   - component: {fileID: 8632055957627555220}
   - component: {fileID: 7754171747568855575}
   - component: {fileID: 6317578923849776648}
+  - component: {fileID: 8632055957627555221}
   m_Layer: 0
   m_Name: Pileton
   m_TagString: Untagged
@@ -2313,12 +2314,34 @@ Transform:
   m_GameObject: {fileID: 8204707764965885156}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 2, y: 117.43, z: -20.97}
-  m_LocalScale: {x: 100, y: 99.999985, z: 2}
+  m_LocalPosition: {x: 2, y: 116.06, z: -20.97}
+  m_LocalScale: {x: 154.8, y: 154.79997, z: 3.096}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &8632055957627555221
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204707764965885156}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4711208715938537054, guid: 2e615084e74a6d54fb524e8c987cafe6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
