@@ -1,12 +1,12 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.VFX;
 
 namespace PlanetMover.Gameplay.Player.Interaction
 {
     public abstract class InteractionMode : MonoBehaviour
     {
+        public System.Action<bool> isOn;
+        
         public abstract void SetTarget(Transform target);
         public abstract void Interact(bool reverse = false);
         public abstract void ReleaseInteract();
@@ -35,6 +35,7 @@ namespace PlanetMover.Gameplay.Player.Interaction
         bool isFiring = false;
         bool wasFiring = false;
         bool isFiringReverseInteraction = false;
+        bool modeIsOn = false;
         
         [Header("DEBUG")]
         [SerializeField] bool drawGizmos;
@@ -43,7 +44,15 @@ namespace PlanetMover.Gameplay.Player.Interaction
         void Start()
         {
             currentMode = modes[0];
-            
+
+            for (int i = 0; i < modes.Length; i++)
+                modes[i].isOn += b =>
+                {
+                    modeIsOn = b;
+                    
+                    if (b) StartVFX();
+                    else if(!isFiring) StopVFX();
+                };
             
             //Set inputs
             CustomInputActions inputs = GameplayManager.Get().inputActions;
@@ -61,15 +70,17 @@ namespace PlanetMover.Gameplay.Player.Interaction
             
             forwardRef = Camera.main.transform;
             
-            //ray.transform.SetParent(null);
+            ray.transform.SetParent(null);
         }
         void LateUpdate()
         {
             if(!currentMode) return;
+            
+            if(modeIsOn || isFiring || wasFiring)
+                UpdateVFXRay();
+            
             if (isFiring)
             {
-                UpdateVFXRay();
-                
                 currentMode.SetTarget(GetTarget());
                 currentMode.Interact(isFiringReverseInteraction);
 
@@ -77,14 +88,11 @@ namespace PlanetMover.Gameplay.Player.Interaction
             }
             else if(wasFiring)
             {
-                UpdateVFXRay();
-                
                 currentMode.ReleaseInteract();
 
                 wasFiring = false;
             }
         }
-
         void OnDrawGizmos()
         {
             if(!drawGizmos) return;
@@ -129,20 +137,26 @@ namespace PlanetMover.Gameplay.Player.Interaction
             isFiringReverseInteraction = reverse;
             isFiring = true;
             
-            //VFX
-            rayCharge.Play();
-            ray.Play();
-            // Universal.LambdaInvoker.Invoke(this, () => { ray.Play(); }, rayOnDelay);
+            StartVFX();
         }
         void StopRay()
         {
             isFiring = false;
             
-            //VFX
-            ray.SendEvent("OnStop");
+            if(!modeIsOn)
+                StopVFX();
+        }
+        void StartVFX()
+        {
+            rayCharge.Play();
+            ray.Play();
+        }
+        void StopVFX()
+        {
+            ray.Stop();
             rayHit.Stop();
             Universal.LambdaInvoker.Invoke(this, 
-                    () => { rayCharge.Stop(); }, chargeOffDelay);
+                () => { rayCharge.Stop(); }, chargeOffDelay);
         }
     }
 }

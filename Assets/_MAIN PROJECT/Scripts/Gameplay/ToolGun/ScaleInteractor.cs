@@ -12,6 +12,7 @@ namespace TimeDistortion.Gameplay.Player.Interaction
         [Header("Runtime Values")]
         [SerializeField] Scalable target;
         [SerializeField] float currentStrength = 1f;
+        bool isScaling;
         
         //Unity Events
 
@@ -40,6 +41,11 @@ namespace TimeDistortion.Gameplay.Player.Interaction
             float dt = Time.deltaTime;
             target.Scale((reverse ? -currentStrength : currentStrength) * dt);
             currentStrength += currentStrength * strengthScalation * dt;
+            
+            if(isScaling) return;
+
+            isScaling = true;
+            isOn?.Invoke(true);
         }
         public override void ReleaseInteract()
         {                 
@@ -47,6 +53,11 @@ namespace TimeDistortion.Gameplay.Player.Interaction
 
             if(currentStrength > baseStrength)
                 currentStrength = baseStrength;
+            
+            if(!isScaling) return;
+            
+            isScaling = false;
+            isOn?.Invoke(false);
         }
     }
 }

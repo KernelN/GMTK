@@ -49,6 +49,8 @@ namespace PlanetMover.Gameplay.Player.Interaction
             //Drop target
             else
                 target.RemoveTarget();
+            
+            isOn?.Invoke(isGrabbingTarget);
         }
         public override void ReleaseInteract() { }
     }
