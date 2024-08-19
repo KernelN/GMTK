@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace PlanetMover.Gameplay.Player.Interaction
@@ -11,12 +12,14 @@ namespace PlanetMover.Gameplay.Player.Interaction
         Movable target;
         bool isGrabbingTarget;
 
-        //Unity Events
-
         //Methods
         public override void SetTarget(Transform target)
         {
-            if(isGrabbingTarget) return;
+            if (isGrabbingTarget)
+            {
+                if(target)
+                    return;
+            }
             if(this.target && target == this.target.transform) return;
 
             if (target == null)
@@ -46,10 +49,14 @@ namespace PlanetMover.Gameplay.Player.Interaction
             {
                 point.position = target.transform.position;
                 target.SetTarget(point, maxMoveSpeed);
+                target.targetAcquired += b => isOn?.Invoke(b);
             }
             //Drop target
             else
+            {
+                target.targetAcquired -= b => isOn?.Invoke(b);
                 target.RemoveTarget();
+            }
             
             isOn?.Invoke(isGrabbingTarget);
         }

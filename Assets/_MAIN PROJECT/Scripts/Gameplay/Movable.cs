@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace PlanetMover.Gameplay
@@ -13,6 +12,8 @@ namespace PlanetMover.Gameplay
         [SerializeField] Transform target;
         bool wasKinematic;
         float maxSpeed;
+
+        public System.Action<bool> targetAcquired;
         
         float SqrMaxSpeed => maxSpeed * maxSpeed;
         
@@ -37,6 +38,9 @@ namespace PlanetMover.Gameplay
         {
             this.target = target;
             this.maxSpeed = maxSpeed;
+
+            if(target != null)
+            targetAcquired?.Invoke(true);
             
             wasKinematic = rb.isKinematic;
             rb.isKinematic = false;
@@ -46,6 +50,8 @@ namespace PlanetMover.Gameplay
         {
             target = null;
 
+            targetAcquired?.Invoke(false);
+            
             rb.useGravity = true;
             rb.isKinematic = wasKinematic;
         }

@@ -40,21 +40,24 @@ namespace PlanetMover.Gameplay.Objects
             CurrentScale = collider.bounds.size.magnitude / _v3Magnitude;
             proportion = (transform.localScale.magnitude/_v3Magnitude) / CurrentScale;
         }
-        public void SetScale(float scale)
+        public void SetScale(float scale, bool clampScale = true)
         {
-            scale = Mathf.Clamp(scale, minScale, maxScale);
+            if(clampScale)
+                scale = Mathf.Clamp(scale, minScale, maxScale);
+            
             Vector3 normalizedSize = transform.localScale.normalized;
-            transform.localScale = normalizedSize * _v3Magnitude * (proportion * scale);
+            transform.localScale = normalizedSize * (_v3Magnitude * (proportion * scale));
             CurrentScale = scale;
         }
-        public void Scale(float scale)
+        public void Scale(float scale, bool clampScale = true)
         {
             float temp = CurrentScale + scale;
             
-            temp = Mathf.Clamp(temp, minScale, maxScale);
+            if(clampScale)
+                temp = Mathf.Clamp(temp, minScale, maxScale);
             
             Vector3 normalizedSize = transform.localScale.normalized;
-            transform.localScale = normalizedSize * _v3Magnitude * (proportion * temp);
+            transform.localScale = normalizedSize * (_v3Magnitude * (proportion * temp));
             CurrentScale = temp;
         }
     }
