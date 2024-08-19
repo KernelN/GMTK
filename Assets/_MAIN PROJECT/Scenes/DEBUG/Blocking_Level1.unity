@@ -248,9 +248,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190789924}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 5
+  m_Drag: 2
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1320,16 +1320,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a368752763a08a541b82362a595641de, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05313366
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a368752763a08a541b82362a595641de, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.05313366
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a368752763a08a541b82362a595641de, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.05313366
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a368752763a08a541b82362a595641de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.780155
+      value: 44.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a368752763a08a541b82362a595641de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120.0136
+      value: 120.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a368752763a08a541b82362a595641de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.650864
+      value: -21.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a368752763a08a541b82362a595641de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1403,7 +1415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider: {fileID: 709216927}
   minScale: 0.06
-  maxScale: 10
+  maxScale: 5
 --- !u!114 &709216925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,7 +1439,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709216923}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1668,7 +1680,7 @@ Transform:
   m_GameObject: {fileID: 994206121}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.8, y: 159.2, z: 72.7}
+  m_LocalPosition: {x: 19.9, y: 159.2, z: 78}
   m_LocalScale: {x: 30, y: 40, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
