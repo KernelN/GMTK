@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider: {fileID: 190789927}
   minScale: 0.1
-  maxScale: 10
+  maxScale: 20
 --- !u!54 &190789926
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -403,8 +403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 341635353}
-  minScale: 0
-  maxScale: 0
+  minScale: 0.1
+  maxScale: 20
 --- !u!54 &341635352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ Transform:
   m_GameObject: {fileID: 466394384}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.91, y: 122.44, z: -0.2}
+  m_LocalPosition: {x: 1.91, y: 122.44, z: 11.11}
   m_LocalScale: {x: 0.1, y: 4.5, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -898,8 +898,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 470614863}
-  minScale: 0
-  maxScale: 0
+  minScale: 0.1
+  maxScale: 20
 --- !u!54 &470614862
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1063,8 +1063,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 606019092}
-  minScale: 0
-  maxScale: 0
+  minScale: 0.1
+  maxScale: 20
 --- !u!54 &606019091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1172,7 +1172,7 @@ Transform:
   m_GameObject: {fileID: 606019089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55, y: 121.54, z: -3.6}
+  m_LocalPosition: {x: 54, y: 121.54, z: -3.6}
   m_LocalScale: {x: 10, y: 4, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1403,8 +1403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 994206124}
-  minScale: 0
-  maxScale: 0
+  minScale: 10
+  maxScale: 0.1
 --- !u!54 &994206123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1512,7 +1512,7 @@ Transform:
   m_GameObject: {fileID: 994206121}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.91, y: 154.93, z: 52.1}
+  m_LocalPosition: {x: 19, y: 159.2, z: 75.6}
   m_LocalScale: {x: 30, y: 40, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1568,8 +1568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 1008333140}
-  minScale: 0
-  maxScale: 0
+  minScale: 0.1
+  maxScale: 20
 --- !u!54 &1008333139
 Rigidbody:
   m_ObjectHideFlags: 0
