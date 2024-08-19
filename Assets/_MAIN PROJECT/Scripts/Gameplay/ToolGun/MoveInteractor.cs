@@ -6,6 +6,7 @@ namespace PlanetMover.Gameplay.Player.Interaction
     {
         [Header("Set Values")]
         [SerializeField] Transform point;
+        [SerializeField, Min(0)] float maxMoveSpeed;
         //[Header("Runtime Values")]
         Movable target;
         bool isGrabbingTarget;
@@ -43,11 +44,11 @@ namespace PlanetMover.Gameplay.Player.Interaction
             if (isGrabbingTarget)
             {
                 point.position = target.transform.position;
-                target.SetTarget(point);
+                target.SetTarget(point, maxMoveSpeed);
             }
             //Drop target
             else
-                target.SetTarget(null);
+                target.RemoveTarget();
         }
         public override void ReleaseInteract() { }
     }

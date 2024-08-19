@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: {fileID: 0}
+  maxMoveSpeed: 20
 --- !u!1 &8655469498273754962
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,13 +8,13 @@ namespace PlanetMover.Gameplay
     {
         [Header("Set Values")]
         [SerializeField] Rigidbody rb;
-        [SerializeField, Min(0)] float maxSpeed;
-        [SerializeField, Min(0)] float minSpeed;
+        [SerializeField, Min(0)] float speedMod = 1f;
         [Header("Runtime Values")]
         [SerializeField] Transform target;
+        bool wasKinematic;
+        float maxSpeed;
         
         float SqrMaxSpeed => maxSpeed * maxSpeed;
-        float SqrMinSpeed => minSpeed * minSpeed;
         
         //Unity Events
         void Start()
@@ -24,18 +24,30 @@ namespace PlanetMover.Gameplay
         void FixedUpdate()
         {
             if(!target) return;
+            
             Vector3 vel = target.position - transform.position;
             if (vel.sqrMagnitude > SqrMaxSpeed)
                 vel = vel.normalized * maxSpeed;
-            else if (vel.sqrMagnitude < SqrMinSpeed)
-                vel = vel.normalized * minSpeed;
-            rb.velocity = vel;
+            
+            rb.velocity = vel * speedMod;
         }
         
         //Methods
-        public void SetTarget(Transform target)
+        public void SetTarget(Transform target, float maxSpeed)
         {
             this.target = target;
+            this.maxSpeed = maxSpeed;
+            
+            wasKinematic = rb.isKinematic;
+            rb.isKinematic = false;
+            rb.useGravity = false;
+        }
+        public void RemoveTarget()
+        {
+            target = null;
+
+            rb.useGravity = true;
+            rb.isKinematic = wasKinematic;
         }
     }
 }

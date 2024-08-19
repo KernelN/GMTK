@@ -285,8 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 418122472}
-  maxSpeed: 40
-  minSpeed: 0
+  speedMod: 1
   target: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
