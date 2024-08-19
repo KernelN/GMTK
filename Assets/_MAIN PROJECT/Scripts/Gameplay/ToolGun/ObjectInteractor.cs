@@ -61,7 +61,7 @@ namespace PlanetMover.Gameplay.Player.Interaction
             
             forwardRef = Camera.main.transform;
             
-            ray.transform.SetParent(null);
+            //ray.transform.SetParent(null);
         }
         void LateUpdate()
         {

@@ -17,6 +17,10 @@ namespace PlanetMover.Gameplay
         float SqrMinSpeed => minSpeed * minSpeed;
         
         //Unity Events
+        void Start()
+        {
+            if(!rb) rb = GetComponent<Rigidbody>();
+        }
         void FixedUpdate()
         {
             if(!target) return;
