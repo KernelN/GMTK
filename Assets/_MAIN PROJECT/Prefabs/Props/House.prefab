@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 2875712624987786566}
-  minScale: 1
-  maxScale: 10
+  minScale: 0.1
+  maxScale: 20
 --- !u!114 &4660389679537950231
 MonoBehaviour:
   m_ObjectHideFlags: 0
