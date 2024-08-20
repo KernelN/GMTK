@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379509a8e03624548975557126ac065b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectsToStore: []
+  freightBox: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  victorySceneIndex: 2
 --- !u!1 &4540352534862485306
 GameObject:
   m_ObjectHideFlags: 0

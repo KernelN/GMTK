@@ -22,7 +22,10 @@ namespace PlanetMover.Gameplay
         [SerializeField] List<Transform> storedObjects;
         [SerializeField] Vector2Int freeCellIndex;
         Vector3[][] cellPositions;
+
+        public System.Action OnObjectStored;
         
+        public int StoredObjectCount => storedObjects.Count;
         Vector3 CellSize => Vector3.one.normalized * cellSize;
 
         //Unity Events
@@ -146,6 +149,9 @@ namespace PlanetMover.Gameplay
                 
                 yield return null;
             }
+            
+            storedObjects.Add(tran);
+            OnObjectStored?.Invoke();
         }
     }
 }
