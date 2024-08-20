@@ -15,11 +15,7 @@ namespace PlanetMover.Gameplay.Player.Interaction
         //Methods
         public override void SetTarget(Transform target)
         {
-            if (isGrabbingTarget)
-            {
-                if(target)
-                    return;
-            }
+            if (isGrabbingTarget) return;
             if(this.target && target == this.target.transform) return;
 
             if (target == null)
