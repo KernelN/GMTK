@@ -106,7 +106,8 @@ namespace PlanetMover.Gameplay.Player.Interaction
         {
             if(!forwardRef) return null;
             Ray ray = new Ray(transform.position, forwardRef.forward);
-            if (!Physics.Raycast(ray, out var hit, range, interactableLayer))
+            QueryTriggerInteraction qt = QueryTriggerInteraction.Collide;
+            if (!Physics.Raycast(ray, out var hit, range, interactableLayer, qt))
                 return null;
             
             return hit.transform;
