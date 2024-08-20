@@ -5,6 +5,9 @@ namespace PlanetMover.Gameplay.Player.Interaction
 {
     public abstract class InteractionMode : MonoBehaviour
     {
+        [Header("Gun Color")]
+        public Color color = Color.yellow;
+        
         public System.Action<bool> isOn;
         
         public abstract void SetTarget(Transform target);
@@ -21,7 +24,8 @@ namespace PlanetMover.Gameplay.Player.Interaction
         [Space] //Modes
         [SerializeField] InteractionMode[] modes;
 
-        [Header("VFX")]
+        [Header("VFX")] 
+        [SerializeField] MeshRenderer[] energyMeshes;
         [SerializeField] VisualEffect ray;
         [SerializeField] float rayOnDelay;
         [SerializeField] ParticleSystem rayCharge;
@@ -66,6 +70,10 @@ namespace PlanetMover.Gameplay.Player.Interaction
                 if(modeIndex >= modes.Length)
                     modeIndex = 0;
                 currentMode = modes[modeIndex];
+                    
+                //Set color of meshes
+                for (int j = 0; j < energyMeshes.Length; j++)
+                    energyMeshes[j].material.color = currentMode.color;
             };
             
             forwardRef = Camera.main.transform;

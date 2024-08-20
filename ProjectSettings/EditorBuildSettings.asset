@@ -6,7 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_MAIN PROJECT/Scenes/DEBUG/Blocking_Level1.unity
+    path: Assets/_MAIN PROJECT/Scenes/Menu.unity
+    guid: 582e5dbf050d6af4fac28b5dcd868c26
+  - enabled: 1
+    path: Assets/_MAIN PROJECT/Scenes/Level_1.unity
     guid: 7819be375103e414885f1fe3dff692e7
+  - enabled: 1
+    path: Assets/_MAIN PROJECT/Scenes/Victory.unity
+    guid: e5b0e0cf2008d7f47a288e9b86382d01
+  - enabled: 1
+    path: Assets/_MAIN PROJECT/Scenes/Credits.unity
+    guid: eed5e86ab47a62f42a9249b0aa11c2b1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8a18b14a0111f8e4a88d94a310b03f9a, type: 2}

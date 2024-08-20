@@ -21,9 +21,6 @@ namespace PlanetMover.UI
         public void ResumeGame()
         {
             Time.timeScale = 1;
-            
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
 }
